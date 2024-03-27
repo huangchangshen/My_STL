@@ -12,7 +12,9 @@ namespace Vector_stl
     template <class T>
     class Vector
     {
-        typedef ConstVectorIterator<T> Iterator;
+        typedef VectorIterator<T> Iterator;
+        typedef ConstVectorIterator<T> Const_Iterator;
+        typedef ReverseVectorIterator<T> Reverse_Iterator;
     public:
         Vector();
         ~Vector();
@@ -49,15 +51,22 @@ namespace Vector_stl
 
         void swap(Vector<T> & other);
         void show() const;
-        
-        VectorIterator<T> begin();
-        VectorIterator<T> end();
 
-        ConstVectorIterator<T> cbegin() const;
-        ConstVectorIterator<T> cend() const;
+        Iterator insert(Iterator pos, int n, const T & value);
+        Iterator insert(Iterator pos, int value);
 
-        ReverseVectorIterator<T> rbegin();
-        ReverseVectorIterator<T> rend();
+        Iterator erase(Iterator first, Iterator last);
+        Iterator erase(Iterator pos);
+
+        Iterator begin();
+        Iterator end();
+
+        Const_Iterator cbegin() const;
+        Const_Iterator cend() const;
+
+        Reverse_Iterator rbegin();
+        Reverse_Iterator rend();
+
 
     private:
         T* m_data;

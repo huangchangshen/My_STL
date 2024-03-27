@@ -93,6 +93,11 @@ namespace Vector_stl
             return temp;
         }
 
+        int operator - (Iterator &other) const
+        {
+            return (m_pointer - other.m_pointer);
+        }
+
     private:
         T * m_pointer;
     };

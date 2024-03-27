@@ -288,37 +288,137 @@ void Vector<T>::show() const
 }
 
 template<class T>
-VectorIterator<T> Vector<T>::begin()
+typename Vector<T>::Iterator Vector<T>::begin()
 {
     return VectorIterator<T>((T *)m_data);
 }
 
 template<class T>
-VectorIterator<T> Vector<T>::end()
+typename Vector<T>::Iterator Vector<T>::end()
 {
     return VectorIterator<T>((T *)(m_data + m_Size));
 }
 
 template<class T>
-ConstVectorIterator<T> Vector<T>::cbegin() const
+typename Vector<T>::Const_Iterator  Vector<T>::cbegin() const
 {
     return ConstVectorIterator<T>((T *)m_data);
 }
 
 template<class T>
-ConstVectorIterator<T> Vector<T>::cend() const
+typename Vector<T>::Const_Iterator Vector<T>::cend() const
 {
     return ConstVectorIterator<T>((T *)(m_data + m_Size));
 }
 
 template<class T>
-ReverseVectorIterator<T> Vector<T>::rbegin()
+typename Vector<T>::Reverse_Iterator Vector<T>::rbegin()
 {
     return ReverseVectorIterator<T>((T *)m_data + m_Size - 1);
 }
 
 template<class T>
-ReverseVectorIterator<T> Vector<T>::rend()
+typename Vector<T>::Reverse_Iterator Vector<T>::rend()
 {
     return ReverseVectorIterator<T>((T *)m_data - 1);
+}
+
+template <class T>
+typename Vector<T>::Iterator Vector<T>::insert(Iterator pos, int value)
+{
+    insert(pos, 1, value);
+}
+
+
+template <class T>
+typename Vector<T>::Iterator Vector<T>::insert(Iterator pos, int n, const T & value)
+{
+    Iterator temp = begin();
+    int index = pos - temp;
+    if (m_Size + n <= m_Capacity)
+    {
+        for (int i = index; i < m_Size; ++ i)
+        {
+            m_data[i + n] = m_data[i];
+        }
+
+        for (int i = index; i <= index + n; ++ i)
+        {
+            m_data[i] = value;
+        }
+        m_Size += n;
+        return pos;
+    }
+    
+    while (m_Size + n > m_Capacity)
+    {
+        if (m_Capacity == 0)
+        {
+            m_Capacity = 1;
+        }
+        else
+        {
+            m_Capacity *= 2;
+        }
+    }
+    
+    T * data = new T[m_Capacity];
+    for (int i = 0; i < m_Size; ++ i)
+    {
+        data[i] = m_data[i];
+    }
+
+    if (m_data != nullptr)
+    {
+        delete [] m_data;
+        m_data = nullptr;
+    }
+    m_data = data;
+    
+    // std::cout << "insert" << std::endl;
+    // std::cout << "index: " << index << " n: " << n << std::endl;
+    for (int i = m_Size - 1; i >= index; -- i)
+    {
+        m_data[i + n] = m_data[i];
+    }
+
+    for (int i = index; i < index + n; ++ i)
+    {
+        m_data[i] = value;
+    }
+    m_Size += n;
+    return pos;
+}
+
+template <class T>
+typename Vector<T>::Iterator Vector<T>::erase(Iterator first, Iterator last)
+{
+    int n = last - first;
+    Iterator beg = begin();
+    int left = first - beg;
+    int right = last - beg;
+    for (int i = left; i < m_Size; ++ i)
+    {
+        m_data[i] = m_data[i + n];
+    }
+    m_Size -= n;
+    return first;
+}
+
+template <class T>
+typename Vector<T>::Iterator Vector<T>::erase(Iterator pos)
+{
+    Iterator en = end();
+    Iterator beg = begin();
+    if (pos == en)
+    {
+        throw std::out_of_range("pos out of range");
+    }
+    int index = pos - beg;
+    for (int i = index; i < m_Size - 1; ++ i)
+    {
+        m_data[i] = m_data[i + 1];
+    }
+    m_Size--;
+    return pos;
 }

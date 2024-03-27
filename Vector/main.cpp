@@ -18,10 +18,13 @@ int main()
     // v.reserve(20);
     // v.show();
 
-    for (auto item = v.rbegin(); item != v.rend(); item ++)
-    {
-        std::cout << *item << " ";
-    }
+    v.insert(v.begin(), 7, 9);
+    v.show();
 
+    v.erase(v.end() - 1);
+    v.show();
+
+    v.erase(v.begin(), v.end());
+    v.show();
     return 0;
 }

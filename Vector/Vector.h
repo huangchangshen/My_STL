@@ -2,12 +2,17 @@
 
 #include <iostream>
 #include <stdexcept>
+#include "VectorIterator.h"
+#include "ConstVectorIterator.h"
+#include "ReverseVectorItertor.h"
 
 namespace Vector_stl
 {
+    
     template <class T>
     class Vector
     {
+        typedef ConstVectorIterator<T> Iterator;
     public:
         Vector();
         ~Vector();
@@ -44,12 +49,20 @@ namespace Vector_stl
 
         void swap(Vector<T> & other);
         void show() const;
+        
+        VectorIterator<T> begin();
+        VectorIterator<T> end();
+
+        ConstVectorIterator<T> cbegin() const;
+        ConstVectorIterator<T> cend() const;
+
+        ReverseVectorIterator<T> rbegin();
+        ReverseVectorIterator<T> rend();
 
     private:
         T* m_data;
         int m_Size;
         int m_Capacity;
-
     };
     #include "Vector.inl"
 };

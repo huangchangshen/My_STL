@@ -10,12 +10,18 @@ int main()
     {
         v.push_back(i);
     }
-    v.show();
+    // v.show();
 
-    v.resize(12);
-    v.show();
+    // v.resize(12);
+    // v.show();
 
-    v.reserve(20);
-    v.show();
+    // v.reserve(20);
+    // v.show();
+
+    for (auto item = v.rbegin(); item != v.rend(); item ++)
+    {
+        std::cout << *item << " ";
+    }
+
     return 0;
 }

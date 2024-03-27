@@ -5,6 +5,7 @@
         "exception": "cpp",
         "memory": "cpp",
         "system_error": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "initializer_list": "cpp"
     }
 }

@@ -286,3 +286,39 @@ void Vector<T>::show() const
     }
     std::cout << std::endl;
 }
+
+template<class T>
+VectorIterator<T> Vector<T>::begin()
+{
+    return VectorIterator<T>((T *)m_data);
+}
+
+template<class T>
+VectorIterator<T> Vector<T>::end()
+{
+    return VectorIterator<T>((T *)(m_data + m_Size));
+}
+
+template<class T>
+ConstVectorIterator<T> Vector<T>::cbegin() const
+{
+    return ConstVectorIterator<T>((T *)m_data);
+}
+
+template<class T>
+ConstVectorIterator<T> Vector<T>::cend() const
+{
+    return ConstVectorIterator<T>((T *)(m_data + m_Size));
+}
+
+template<class T>
+ReverseVectorIterator<T> Vector<T>::rbegin()
+{
+    return ReverseVectorIterator<T>((T *)m_data + m_Size - 1);
+}
+
+template<class T>
+ReverseVectorIterator<T> Vector<T>::rend()
+{
+    return ReverseVectorIterator<T>((T *)m_data - 1);
+}

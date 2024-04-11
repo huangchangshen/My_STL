@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../Iterator/ConstIterator.h
+
+../Iterator/ReverseIterator.h
+
+../Iterator/iterator.h
+
+../array.h
+stdexcept
+-
+Iterator/iterator.h
+-
+Iterator/ConstIterator.h
+-
+Iterator/ReverseIterator.h
+-
+array.inl
+-
+
+../array.inl
+
+C:/Users/Lenovo/Desktop/MyCode/MyStl/Array/main.cpp
+iostream
+-
+array.h
+-
+

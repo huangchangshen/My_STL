@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../ListNode.h
+
+../list.h
+ListNode.h
+-
+list_iterator/list_iterator.h
+-
+list_iterator/const_list_iterator.h
+-
+list_iterator/reverse_list_iterator.h
+-
+list.inl
+../list.inl
+
+../list.inl
+
+../list_iterator/const_list_iterator.h
+ListNode.h
+-
+
+../list_iterator/list_iterator.h
+ListNode.h
+-
+
+../list_iterator/reverse_list_iterator.h
+ListNode.h
+-
+
+C:/Users/Lenovo/Desktop/MyCode/MyStl/List/main.cpp
+iostream
+-
+list.h
+-
+

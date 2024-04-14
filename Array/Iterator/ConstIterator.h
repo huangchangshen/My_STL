@@ -2,7 +2,7 @@
 
 namespace hcs
 {
-    namespace ConstIterator
+    namespace stl
     {
         template<class T>
         class Const_Iterator

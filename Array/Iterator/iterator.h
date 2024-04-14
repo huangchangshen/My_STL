@@ -2,7 +2,7 @@
 
 namespace hcs
 {
-    namespace iterator
+    namespace stl
     {
         template<class T>
         class Iterator

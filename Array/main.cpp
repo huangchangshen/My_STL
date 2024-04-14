@@ -1,7 +1,7 @@
 #include <iostream>
 #include <array.h>
 
-using namespace hcs::array;
+using namespace hcs::stl;
 
 int main()
 {

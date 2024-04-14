@@ -4,13 +4,9 @@
 #include <Iterator/ConstIterator.h>
 #include <Iterator/ReverseIterator.h>
 
-using namespace hcs::iterator;
-using namespace hcs::ConstIterator;
-using namespace hcs::ReverseIterator;
-
 namespace hcs
 {
-    namespace array
+    namespace stl
     {
         template<class T, std::size_t N>
         class Array

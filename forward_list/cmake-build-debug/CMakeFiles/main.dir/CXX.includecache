@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../Forward_list.h
+ListNode.h
+-
+forward_list_iterator/iterator.h
+-
+forward_list_iterator/const_iterator.h
+-
+Forward_list.inl
+../Forward_list.inl
+
+../Forward_list.inl
+
+../ListNode.h
+
+../forward_list_iterator/const_iterator.h
+ListNode.h
+-
+
+../forward_list_iterator/iterator.h
+ListNode.h
+-
+
+C:/Users/Lenovo/Desktop/MyCode/MyStl/forward_list/main.cpp
+iostream
+-
+Forward_list.h
+-
+
